@@ -1,0 +1,262 @@
+.c-booking__datepicker {
+    width: 396px;
+    position: absolute;
+    top: auto;
+    bottom: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+    overflow: hidden;
+    transition: all 0.4s;
+    background-color: #FFFFFF;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .ui-datepicker-title {
+        text-align: center;
+        padding: 0px 15px;
+        color: #20415C;
+        @include text;
+        line-height: 4.4rem;
+        width: calc(100% - 64px);
+    }
+
+    .ui-datepicker-calendar {
+        border: 0;
+        width: 100%;
+        margin: 0 auto;
+        border-spacing: 0px;
+        padding: 20px 23px;
+        thead{
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            tr{
+                display: grid;
+                grid-template-columns: repeat(7, minmax(10px, 1fr));
+                grid-column-gap: 8px;
+                width: 100%;
+            }
+        }
+        tbody{
+            padding: 8px 20px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-row-gap: 8px;
+            tr{
+                display: grid;
+                grid-template-columns: repeat(7, minmax(10px, 1fr));
+                grid-column-gap: 8px;
+                width: 100%;
+                td{
+                    width: 100%;
+                    text-align: center;
+                    height: 44px;
+                    padding: 0;
+                    /* &:not([class=" "]){
+                        opacity: 0;
+                    } */
+                    &.ui-datepicker-other-month{
+                        opacity: 0;
+                    }
+                    &.ui-datepicker-unselectable{
+                        a, span{
+                            border-color: #A7B8C4;
+                        }
+                    }
+                    a,
+                    a.ui-state-default {
+                        text-align: center;
+                        font-weight: 300;
+                        font-size: 1.6rem;
+                        line-height: 2.4rem;
+                        @include other;
+                        letter-spacing: 0px;
+                        color: #20415C;
+                        opacity: 1;
+                        width: 100%;
+                        height: 44px;
+                        border: 0;
+                        line-height: 4.4rem;
+                        padding: 0;
+                        background: transparent;
+                        @include transition;
+                        border-radius: 50%;
+                        border: 2px solid transparent;
+                        &:hover {
+                            border-color: #20415C !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ui-datepicker-inline {
+        width: 100%;
+    }
+
+    .ui-widget-content {
+        border: 0;
+        background: #FEF3F1;
+    }
+}
+
+.c-booking__datepicker .ui-datepicker-calendar span {
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0.01em;
+    font-family: "NeueHaasUnicaPro-Light", sans-serif;
+    font-weight: 300;
+    color: rgba(32, 32, 32, 0.2);
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    border-radius: 100%;
+    background: none;
+    border: 0;
+}
+
+.c-booking__datepicker .ui-datepicker-calendar th span,
+.c-booking__datepicker .ui-datepicker-calendar th {
+    letter-spacing: 1.4px;
+    color: #20415C;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    @include font;
+    font-weight: bold;
+    padding: 0;
+    height: 24px;
+}
+
+
+.c-booking__datepicker .ui-datepicker-header.ui-widget-header.ui-helper-clearfix {
+    position: relative;
+    padding: 20px 20px 10px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+// @media (max-width: 1024px) {
+//     .c-booking__datepicker .ui-datepicker-header.ui-widget-header.ui-helper-clearfix {
+//         padding: 16px;
+//     }
+// }
+
+.c-booking__datepicker .ui-datepicker-title span {
+    font-size: 15px;
+    line-height: normal;
+    letter-spacing: 0.01em;
+    font-weight: 300;
+    text-align: center;
+    color: var(--color-a);
+}
+
+.c-booking__datepicker .ui-datepicker-current-day.ui-datepicker-current-day a {
+    border-color: #20415C;
+}
+
+.c-booking__datepicker .ui-datepicker-next {
+    position: static;
+    width: 32px;
+    height: 32px;
+    text-align: right;
+    cursor: pointer;
+    color: #FFFFFF;
+    display: block;
+    -ms-flex-order: 2;
+    order: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+.c-booking__datepicker .ui-datepicker-next:hover {
+    background: none;
+    border: 0;
+    opacity: 1;
+}
+
+.c-booking__datepicker .ui-datepicker-next span {
+    background: none;
+}
+
+.c-booking__datepicker .ui-datepicker-next:before {
+    content: url("../images/icon-next.svg");
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.c-booking__datepicker .ui-datepicker-next:before:hover {
+    background: none;
+    border: 0;
+}
+
+.c-booking__datepicker .ui-datepicker-prev {
+    position: static;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+.c-booking__datepicker .ui-datepicker-prev:before {
+    content: url("../images/icon-prev.svg");
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.c-booking__datepicker .ui-datepicker-prev:hover {
+    background: none;
+    border: 0;
+    opacity: 1;
+}
+
+.c-booking__datepicker .ui-datepicker-prev span,
+.c-booking__datepicker .ui-datepicker-next span {
+    display: none;
+}
+
+.c-booking__datepicker .ui-icon {
+    background: none;
+}
+
+
+.c-booking__span {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    font-family: 'Fraunces', 'Arial', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    line-height: 4.8rem;
+    height: 4.8rem;
+    text-align: center;
+    cursor: pointer;
+    pointer-events: auto;
+}

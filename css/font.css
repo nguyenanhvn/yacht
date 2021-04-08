@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'GeorgiaBallpark Script';
+    src: url('../fonts/GeorgiaBallpark-Script.eot');
+    src: url('../fonts/GeorgiaBallpark-Script.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GeorgiaBallpark-Script.woff2') format('woff2'),
+        url('../fonts/GeorgiaBallpark-Script.woff') format('woff'),
+        url('../fonts/GeorgiaBallpark-Script.ttf') format('truetype'),
+        url('../fonts/GeorgiaBallpark-Script.svg#GeorgiaBallpark-Script') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeorgiaBallpark Serif';
+    src: url('../fonts/GeorgiaBallpark-Serif.eot');
+    src: url('../fonts/GeorgiaBallpark-Serif.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GeorgiaBallpark-Serif.woff2') format('woff2'),
+        url('../fonts/GeorgiaBallpark-Serif.woff') format('woff'),
+        url('../fonts/GeorgiaBallpark-Serif.ttf') format('truetype'),
+        url('../fonts/GeorgiaBallpark-Serif.svg#GeorgiaBallpark-Serif') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

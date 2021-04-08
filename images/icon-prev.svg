@@ -1,0 +1,7 @@
+<svg id="_24x24-ChevronLeft" data-name="24x24-ChevronLeft" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <rect id="Rectangle_4716" data-name="Rectangle 4716" width="32" height="32" rx="3" fill="#e3e8ed" opacity="0" />
+    <g id="_24x24-chevron-left" data-name="24x24-chevron-left" transform="translate(4 4)">
+        <path id="Frame24" d="M0,0H24V24H0Z" fill="#fff" opacity="0" />
+        <path id="chevron-left" d="M15,6,9,12l6,6" fill="none" stroke="#20415c" stroke-width="1.5" />
+    </g>
+</svg>
