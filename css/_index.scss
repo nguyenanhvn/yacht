@@ -373,7 +373,7 @@
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			right: 0;
+			right: -3rem;
 			margin: auto;
 			svg{				
 				position: absolute;
@@ -640,7 +640,7 @@
 				.box__view{
 					display: table;
 					margin: 3rem 11.5rem 0 0;
-					font-size: 1.2rem;
+					font-size: 1.4rem;
 					text-transform: uppercase;
 					font-weight: bold;
 					@include font;
@@ -799,6 +799,9 @@
 								font-size: 3rem;
 								margin-left: 1rem;
 								color: #254E6D;
+								sup{
+									font-size: 55%;
+								}
 							}
 						}
 						.book__view{
@@ -1352,7 +1355,7 @@
 		overflow: hidden;
 		.content_box{
 			small{
-				font-size: 1.2rem;
+				font-size: 1.4rem;
 				line-height: 1.6rem;
 				font-weight: 300;
 				@include other;
@@ -1550,7 +1553,7 @@
 				.item__book{
 					display: table;
 					margin: auto;
-					font-size: 1.2rem;
+					font-size: 1.4rem;
 					text-transform: uppercase;
 					font-weight: bold;
 					@include font;
@@ -1727,7 +1730,7 @@
 				.box__view{
 					display: table;
 					margin: 5.5rem 0 0;
-					font-size: 1.2rem;
+					font-size: 1.4rem;
 					text-transform: uppercase;
 					font-weight: bold;
 					@include font;

@@ -1256,7 +1256,7 @@ perspective effects (not including the modals and the overlay).
   transition: all 0.2s ease-out 0s;
   -webkit-transition: all 0.2s ease-out 0s;
   z-index: 99;
-  box-shadow: 0px 3px 6px #00000029; }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
   #header.active:before {
     height: 100%; }
   #header.active .header_actions .action.action__request:before {
@@ -1896,7 +1896,7 @@ section.content-intro {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
+    right: -3rem;
     margin: auto; }
     section.content-intro .text_fix svg {
       position: absolute;
@@ -2111,7 +2111,7 @@ section.content-rooms {
       section.content-rooms .content_box .box__bottom .box__view {
         display: table;
         margin: 3rem 11.5rem 0 0;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         text-transform: uppercase;
         font-weight: bold;
         font-family: 'Barlow Condensed', 'Arial', sans-serif; }
@@ -2246,6 +2246,8 @@ section.content-rooms {
               font-size: 3rem;
               margin-left: 1rem;
               color: #254E6D; }
+              section.content-rooms .content_box .box__info .item .item__bottom .item__price span sup {
+                font-size: 55%; }
           section.content-rooms .content_box .box__info .item .item__bottom .book__view {
             display: table;
             margin: 2rem 0 auto auto;
@@ -2632,7 +2634,7 @@ section.content-packages {
   background: #fff;
   overflow: hidden; }
   section.content-packages .content_box small {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.6rem;
     font-weight: 300;
     font-family: 'Fraunces', 'Arial', sans-serif;
@@ -2808,7 +2810,7 @@ section.content-packages {
       section.content-packages .box__slider .item .item__book {
         display: table;
         margin: auto;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         text-transform: uppercase;
         font-weight: bold;
         font-family: 'Barlow Condensed', 'Arial', sans-serif;
@@ -2956,7 +2958,7 @@ section.content-gmap {
       section.content-gmap .content_box .box__right .box__view {
         display: table;
         margin: 5.5rem 0 0;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         text-transform: uppercase;
         font-weight: bold;
         font-family: 'Barlow Condensed', 'Arial', sans-serif; }
