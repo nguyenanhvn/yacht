@@ -61,6 +61,9 @@
                     /* &:not([class=" "]){
                         opacity: 0;
                     } */
+                    &:not([data-handler="selectDay"]){
+                        opacity: 0;
+                    }
                     &.ui-datepicker-other-month{
                         opacity: 0;
                     }

@@ -12,12 +12,14 @@
 		&.active{
 			&:before{
 				height: 100%;
+				opacity: 1;
 			}
 			.header_actions{
 				.action{
 					&.action__request{
 						&:before{
 							height: 100%;
+							opacity: 1;
 						}
 						svg path{
 							fill: #20415C;
@@ -32,14 +34,14 @@
 		&:before{
 			content: '';
 			background: #254E6D;
-			@include transition-slow;
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 			height: 0%;
-			transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
-			-webkit-transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
+			opacity: 0;
+		    -webkit-transition: height .4s cubic-bezier(.215,.61,.355,1),opacity .8s cubic-bezier(.215,.61,.355,1);
+		    transition: height .4s cubic-bezier(.215,.61,.355,1),opacity .8s cubic-bezier(.215,.61,.355,1);
 		}
 		.header-box{
 			display: grid;
@@ -123,8 +125,8 @@
 					@include small;
 					text-transform: uppercase;
 					background: transparent;
-					transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
-					-webkit-transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
+					transition: all 0.4s cubic-bezier(.215,.61,.355,1);
+					-webkit-transition: all 0.4s cubic-bezier(.215,.61,.355,1);		
 					position: relative;
 					&:before{
 						content: '';
@@ -134,15 +136,16 @@
 						left: 0;
 						right: 0;
 						height: 0%;
-						transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
-						-webkit-transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
+						opacity: 0;
+					    -webkit-transition: height .4s cubic-bezier(.215,.61,.355,1),opacity .8s cubic-bezier(.215,.61,.355,1);
+					    transition: height .4s cubic-bezier(.215,.61,.355,1),opacity .8s cubic-bezier(.215,.61,.355,1);
 					}
 					svg{
 						position: relative;
 						z-index: 9;
 						path{							
-							transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
-							-webkit-transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
+							transition: all 0.4s cubic-bezier(.215,.61,.355,1);
+							-webkit-transition: all 0.4s cubic-bezier(.215,.61,.355,1);							
 						}
 					}
 					span{
@@ -150,8 +153,8 @@
 						z-index: 9;
 						color: #F8C1B8;
 						margin-left: 0.4rem;
-						transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
-						-webkit-transition: all 0.7s cubic-bezier(.53,.94,.96,.85);
+						transition: all 0.4s cubic-bezier(.215,.61,.355,1);
+						-webkit-transition: all 0.4s cubic-bezier(.215,.61,.355,1);		
 					}
 				}
 			}
