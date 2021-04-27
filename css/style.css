@@ -3786,63 +3786,65 @@ section.content-tgrid {
             transform-origin: center center;
             transition: transform 0s .6s;
             will-change: transform; }
-  section.content-tgrid .box_bottom .content_box {
-    padding: 0 18rem;
-    max-width: 171rem;
-    width: 100%;
-    position: relative;
-    margin: auto; }
-    @media (max-width: 1200px) {
-      section.content-tgrid .box_bottom .content_box {
-        padding: 0; } }
-    section.content-tgrid .box_bottom .content_box .box_blue {
-      background: #254E6D;
-      padding: 40rem 4rem 14rem;
+  section.content-tgrid .box_bottom {
+    background: #F5F3F1; }
+    section.content-tgrid .box_bottom .content_box {
+      padding: 0 18rem;
+      max-width: 171rem;
       width: 100%;
-      margin: -30rem auto auto;
-      position: relative; }
+      position: relative;
+      margin: auto; }
       @media (max-width: 1200px) {
-        section.content-tgrid .box_bottom .content_box .box_blue {
-          padding: 6rem 2rem;
-          margin: auto; } }
-      section.content-tgrid .box_bottom .content_box .box_blue:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: -50vw;
-        width: 100vw;
-        background: #254E6D; }
-    section.content-tgrid .box_bottom .content_box .box_heading {
-      font-size: 4.8rem;
-      line-height: 6rem;
-      font-weight: 500;
-      font-family: 'Barlow Condensed', 'Arial', sans-serif;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      margin: 0;
-      position: relative;
-      transition-delay: 0.5s; }
-      @media (max-width: 450px) {
-        section.content-tgrid .box_bottom .content_box .box_heading {
-          font-size: 3.2rem;
-          line-height: 1.25; } }
-    section.content-tgrid .box_bottom .content_box .box_text {
-      letter-spacing: 0px;
-      color: #F9CDC6;
-      font-size: 1.8rem;
-      line-height: 2.8rem;
-      font-family: 'Fraunces', 'Arial', sans-serif;
-      font-weight: 300;
-      width: 100%;
-      max-width: 890px;
-      margin: 3rem auto auto;
-      position: relative;
-      transition-delay: 0.7s; }
-      @media (max-width: 450px) {
-        section.content-tgrid .box_bottom .content_box .box_text {
-          font-size: 1.6rem;
-          line-height: 1.4; } }
+        section.content-tgrid .box_bottom .content_box {
+          padding: 0; } }
+      section.content-tgrid .box_bottom .content_box .box_blue {
+        background: #254E6D;
+        padding: 40rem 4rem 14rem;
+        width: 100%;
+        margin: -30rem auto auto;
+        position: relative; }
+        @media (max-width: 1200px) {
+          section.content-tgrid .box_bottom .content_box .box_blue {
+            padding: 6rem 2rem;
+            margin: auto; } }
+        section.content-tgrid .box_bottom .content_box .box_blue:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -50vw;
+          width: 100vw;
+          background: #254E6D; }
+      section.content-tgrid .box_bottom .content_box .box_heading {
+        font-size: 4.8rem;
+        line-height: 6rem;
+        font-weight: 500;
+        font-family: 'Barlow Condensed', 'Arial', sans-serif;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        margin: 0;
+        position: relative;
+        transition-delay: 0.5s; }
+        @media (max-width: 450px) {
+          section.content-tgrid .box_bottom .content_box .box_heading {
+            font-size: 3.2rem;
+            line-height: 1.25; } }
+      section.content-tgrid .box_bottom .content_box .box_text {
+        letter-spacing: 0px;
+        color: #F9CDC6;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        font-family: 'Fraunces', 'Arial', sans-serif;
+        font-weight: 300;
+        width: 100%;
+        max-width: 890px;
+        margin: 3rem auto auto;
+        position: relative;
+        transition-delay: 0.7s; }
+        @media (max-width: 450px) {
+          section.content-tgrid .box_bottom .content_box .box_text {
+            font-size: 1.6rem;
+            line-height: 1.4; } }
 
 /* Content Destination Com 1 */
 section.content-detination_1 {
