@@ -466,6 +466,9 @@
 			min-height: 45rem;
 			@include flex-center;
 			text-align: center;
+			@media (max-width: 450px){
+				padding: 6rem 1rem;
+			}
 		}
 		.box__flex{
 			max-width: 890px;
@@ -2406,6 +2409,192 @@
 						    transition: transform 0s .6s;
 						    will-change: transform;
 					    }
+				    }
+				}
+			}
+		}
+	}
+
+/* Content Text Grid */
+	section.content-tgrid{
+		position: relative;
+		overflow: hidden;
+		background: #fff;
+		.box_top{
+			position: relative;
+			z-index: 9;
+			.content_box{
+				padding: 0 18rem 0;
+			    max-width: 171rem;
+			    width: 100%;
+			    margin: auto;
+			    position: relative;
+			    @media (max-width: 1200px){
+			    	padding: 0;
+			    }
+			}
+			.text_fix{
+				position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    right: -3rem;
+			    margin: auto;
+			    svg{
+			    	position: absolute;
+				    top: 0;
+				    bottom: 0;
+				    right: 0;
+				    margin: auto;
+			    }
+			    @media (max-width: 1200px){
+			    	display: none;
+			    }
+			}
+			.box_short{
+				font-weight: 300;
+				font-style: italic;
+				font-size: 2rem;
+				line-height: 1.5;
+				@include other;
+				letter-spacing: 0px;
+				color: #20415C;
+				max-width: 89rem;
+				margin: auto;
+				width: 100%;
+				grid-row-gap: 3rem;
+				padding: 12rem 4rem 9.5rem;
+			    transition-delay: 0.5s;
+			    @media (max-width: 1200px){
+			    	padding: 6rem 2rem;
+			    }
+			    @media (max-width: 450px){
+			    	font-size: 1.7rem;
+					grid-row-gap: 2.6rem;
+			    }
+				*{
+					margin: 0;
+				}
+			}
+			.box_img{
+				overflow: hidden;
+				height: 60rem;
+				position: relative;
+				@media (max-width: 450px){
+					height: 30rem;
+				}
+				&[data-anim="true"]{
+					.img__bg{
+					    transform: translateX(0);
+					    transition: transform 1.3s cubic-bezier(.565,.43,.24,.92) .1s;
+					    &:before{
+					    	transform: scaleX(0);
+						    transition: transform 1.2s cubic-bezier(.565,.43,.24,.92) .45s;
+					    }
+					    .bg__box{
+					    	transform: translateX(0);
+						    transition: transform 1.3s cubic-bezier(.565,.43,.24,.92) .1s;
+						    .bg{
+					    	    transform: scale(1);
+							    transition: transform 2.6s cubic-bezier(.34,.615,.4,.985) .3s;
+						    }
+					    }
+					}
+				}
+				.img__bg{
+					height: 100%;
+					width: 100%;
+					overflow: hidden;
+				    position: relative;
+			        transform: translateX(-100%);
+				    transition: transform .6s cubic-bezier(.7,.085,.79,.415) .1s;
+				    &:before{
+				    	background-color: #F8C1B8;
+					    bottom: 0;
+					    content: "";
+					    left: 0;
+					    position: absolute;
+					    right: 0;
+					    top: 0;
+					    transform: scaleX(1);
+					    transform-origin: center right;
+					    transition: transform .6s cubic-bezier(.7,.085,.79,.415);
+					    will-change: transform;
+					    z-index: 20;
+				    }
+				    .bg__box{
+			    	    overflow: hidden;
+					    transform: translateX(100%);
+					    transition: transform .6s cubic-bezier(.7,.085,.79,.415) .1s;
+					    position: relative;
+					    height: 100%;
+					    .bg{
+				    	    position: absolute;
+						    top: 0;
+						    left: 0;
+						    width: 100%;
+						    height: 100%;
+						    background: center /cover;
+						    transform: scale(1.2);
+						    transform-origin: center center;
+						    transition: transform 0s .6s;
+						    will-change: transform;
+					    }
+				    }
+				}
+			}
+		}
+		.box_bottom{
+			.content_box{
+				padding: 0 18rem;
+			    max-width: 171rem;
+			    width: 100%;
+			    position: relative;
+			    margin: auto;
+			    @media (max-width: 1200px){
+			    	padding: 0;
+			    }
+				.box_blue{
+					background: #254E6D;
+					padding: 40rem 4rem 14rem;
+				    width: 100%;
+				    margin: -30rem auto auto;
+				    position: relative;
+				    @media (max-width: 1200px){
+				    	padding: 6rem 2rem;
+				    	margin: auto;
+				    }
+					&:before{
+						content: '';
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: -50vw;
+						width: 100vw;
+						background: #254E6D;
+					}					
+				}
+				.box_heading{
+					@include heading;
+					letter-spacing: 0px;
+					text-transform: uppercase;
+					margin: 0;
+					position: relative;
+				    transition-delay: 0.5s;
+				    @media (max-width: 450px){
+				    	@include heading-mobile;
+				    }
+				}
+				.box_text{
+					letter-spacing: 0px;
+					color: #F9CDC6;
+					@include text;
+					width: 100%;
+					max-width: 890px;
+					margin: 3rem auto auto;
+					position: relative;
+				    transition-delay: 0.7s;
+				    @media (max-width: 450px){
+				    	@include text-mobile;
 				    }
 				}
 			}
