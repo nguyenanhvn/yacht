@@ -245,8 +245,8 @@
 					&:hover{
 						.child__img{
 							transform: scale(1.1);
-							&:before{
-								background: rgba(#000, 0.5);
+							.img__bg:after{
+								background: rgba(#000, 0.7);
 							}
 						}
 						.child__caption{
@@ -294,16 +294,6 @@
 							    }
 							}
 						}
-						&:after{
-							content: '';
-							position: absolute;
-							top: 0;
-							left: 0;
-							right: 0;
-							bottom: 0;
-							background: rgba(#000, 0.1);
-							@include transition-slow;
-						}
 						.img__bg{
 							height: 100%;
 							width: 100%;
@@ -325,6 +315,16 @@
 							    will-change: transform;
 							    z-index: 20;
 						    }
+							&:after{
+								content: '';
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								bottom: 0;
+								background: rgba(#000, 0.1);
+								@include transition-slow;
+							}
 						    .bg__box{
 					    	    overflow: hidden;
 							    transform: translateX(100%);
@@ -360,11 +360,11 @@
 							letter-spacing: 0px;
 							color: #FFFFFF;
 							text-transform: uppercase;
-							opacity: 1;
 							@include font;
 							@include transition-slow;
 							padding-bottom: 0;
 							margin: 0;
+							transition-delay: 1.5s;
 						}
 						.child__text{
 							font-size: 1.8rem;
@@ -394,6 +394,7 @@
 						@include font;
 						position: absolute;
 						bottom: 3rem;
+						transition-delay: 1.7s;
 						.book__arrow{
 							position: absolute;
 						    left: 0;

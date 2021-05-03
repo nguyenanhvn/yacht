@@ -29,6 +29,7 @@
 					margin-left: auto;
 					max-width: 544px;
 					text-align: right;
+					transition-delay: 0.5s;
 					@media (max-width: 992px){
 				    	margin: auto;
 				    	text-align: center;
@@ -250,6 +251,7 @@
 					@include other;
 					font-weight: 300;
 					grid-row-gap: 30px;
+					transition-delay: 0.5s;
 					*{
 						margin: 0;
 					}
@@ -696,7 +698,7 @@
 							@include font;
 							opacity: 0;
 							@include transition;							
-							@media (max-width: 992px){		
+							@media (max-width: 1200px){		
 								top: auto;
 								opacity: 1;
 							}

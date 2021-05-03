@@ -62,7 +62,9 @@
                         opacity: 0;
                     } */
                     &:not([data-handler="selectDay"]){
-                        opacity: 0;
+                        // opacity: 0;
+                        opacity: 1;
+                        color: #A7B8C4;
                     }
                     &.ui-datepicker-other-month{
                         opacity: 0;
@@ -70,6 +72,11 @@
                     &.ui-datepicker-unselectable{
                         a, span{
                             border-color: #A7B8C4;
+                        }
+                    }
+                    &.ui-datepicker-current-day{
+                        a{                            
+                            border-color: #20415C !important;
                         }
                     }
                     a,
@@ -85,7 +92,7 @@
                         width: 100%;
                         height: 44px;
                         border: 0;
-                        line-height: 4.4rem;
+                        line-height: 4.3rem;
                         padding: 0;
                         background: transparent;
                         @include transition;
@@ -114,7 +121,7 @@
     font-size: 14px;
     line-height: normal;
     letter-spacing: 0.01em;
-    font-family: "NeueHaasUnicaPro-Light", sans-serif;
+    font-family: 'Fraunces', 'Arial', sans-serif;
     font-weight: 300;
     color: rgba(32, 32, 32, 0.2);
     text-decoration: none;

@@ -8,8 +8,90 @@ jQuery(document).ready(function() {
         header();
     });
 
-    // jQuery('section.content-obanner').attr('data-anim', 'true');
-    // jQuery('section.content-odbanner').attr('data-anim', 'true');
+// mouse anim
+    jQuery(document).on('mouseover', '.ubtn', function () {
+        jQuery('.mouse-ball').addClass('mouse-ball-hover');
+        jQuery(this).addClass('ubtn-hovering');
+    }).on('mouseleave', '.ubtn', function () {
+        jQuery('.mouse-ball').removeClass('mouse-ball-hover');
+        jQuery(this).removeClass('ubtn-hovering');
+    });
+    jQuery('a').on('mouseover', function () {
+        jQuery('.mouse-ball').addClass('mouse-ball-hover')
+    }).on('mouseleave', function () {
+        jQuery('.mouse-ball').removeClass('mouse-ball-hover')
+    });
+
+    if (deviceIsMobile) {
+      document.querySelector('body').classList.add('is-touch')
+    }
+
+    if (!deviceIsMobile) {
+
+      gsap.set(".mouse-ball", { xPercent: -50, yPercent: -50 });
+
+      const mouseBall = document.querySelector(".mouse-ball");
+      const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      const mouse = { x: pos.x, y: pos.y };
+      const speed = 0.2;
+
+      const xSet = gsap.quickSetter(mouseBall, "x", "px");
+      const ySet = gsap.quickSetter(mouseBall, "y", "px");
+      const setScaleX = gsap.quickSetter(mouseBall, "scaleX",);
+      const setScaleY = gsap.quickSetter(mouseBall, "scaleY");
+
+      window.addEventListener("mousemove", e => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+      });
+
+      gsap.ticker.add(() => {
+        const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+
+        pos.x += (mouse.x - pos.x) * dt;
+        pos.y += (mouse.y - pos.y) * dt;
+        xSet(pos.x);
+        ySet(pos.y);
+        if (mouseBall && mouseBall.classList.contains('mouse-ball-hover')) {
+          TweenMax.to(mouseBall, 0.5, { width: 60, height: 60 });
+        } else {
+          TweenMax.to(mouseBall, 0.5, { width: 10, height: 10 });
+        }
+      });
+    }
+
+// animate menu
+    jQuery('#menu-trigger').on('change', function () {
+        if (jQuery(this).is(':checked')) {
+            tlMenu.restart();
+            jQuery('body').addClass('none-scroll');
+        } else {
+            tlMenu.reverse();
+            jQuery('body').removeClass('none-scroll');
+        }
+    });
+    var tlMenu = new TimelineMax({ paused: true });
+    var sidebar = document.querySelector('.sidebar');
+    var sidebarOverlay = document.querySelector('.sidebar-overlay');
+    var sidebarList = document.querySelectorAll('.sidebar-inner ul li');
+    var sidebarLang = document.querySelector('.sidebar_lang');
+    var sidebarButton = document.querySelector('.sidebar_button');
+
+    tlMenu.to(sidebarOverlay, 0.5, { opacity: 0.5, ease: Power4.easeOut }, "-=0.2")
+      .to(sidebar, 0.5, { y: 0, ease: Power4.easeOut });
+
+    tlMenu.to(sidebarLang, 0.3, { x: 0, opacity: 1, ease: Power4.easeOut });
+
+    sidebarList.forEach(function (item) {
+      tlMenu.fromTo(item, 0.3, { x: 10, opacity: 0, ease: Power4.easeOut }, { x: 0, opacity: 1, ease: Power4.easeOut }, "-=0.18")
+    });
+
+    tlMenu.to(sidebarButton, 0.3, { x: 0, opacity: 1, ease: Power1.easeOut });
+
+// end mouse anim
+    jQuery(document).on('click', '.hambuger', function(){
+        jQuery(this).toggleClass('activated');
+    });
 
     jQuery(window).scroll(function(){
         jQuery('.content-obanner .shadow').css("opacity", jQuery(window).scrollTop() / 1500) - 1;
@@ -27,6 +109,14 @@ jQuery(document).ready(function() {
     setTimeout(function() {
         jQuery('#loading').addClass('remove');
     }, 3000);
+    setTimeout(function() {
+        jQuery('#loading').removeClass('end');
+    }, 5000);
+
+    // for (var i = 0; i < jQuery('a').length; i++) {
+    //     jQuery('a:eq('+i+')').attr('data-href', jQuery('a:eq('+i+')').attr('href'));
+    // }
+    // jQuery('a').attr('href', '');
 
     jQuery(document).on('click', 'a', function(event) {
         event.preventDefault();
@@ -36,9 +126,8 @@ jQuery(document).ready(function() {
         jQuery('#loading').removeClass('remove');
 
         setTimeout(function() {
-            jQuery('#loading').removeClass('end');
-        }, 2000);
-        window.location.href = nextPage;
+            window.location.href = nextPage;
+        }, 1500);
     });
 
     jQuery(document).on("click", '.scroll--indicator', function (event) {
@@ -61,8 +150,8 @@ jQuery(document).ready(function() {
             dragEndSpeed: 2200,
             items: 1,
             navText: [
-                '<div class="nav__prev"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
-                '<div class="nav__next"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
+                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
+                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
             ],
             onInitialized: counter,
             onChanged: counter,
@@ -85,21 +174,30 @@ jQuery(document).ready(function() {
     }
     if (jQuery('.content-rooms .box__slider').length > 0) {
         jQuery('.content-rooms .box__slider').owlCarousel({
-            loop: true,
+            loop: false,
             autoplayTimeout: 5000,
             nav: true,
             autoplay: false,
             dots: false,
-            margin: 30,
             navSpeed: 2200,
             dragEndSpeed: 2200,
             items: 1,
             startPosition: 1,
+            touchDrag: false,
+            mouseDrag: false,
             navText: [
-                '<div class="nav__prev"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
-                '<div class="nav__next"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
+                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
+                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
             ],
             navContainer: '.content-rooms .owl__nav',
+            responsive: {
+                0: {
+                    margin: 0,
+                },
+                1201: {
+                    margin: 30,
+                }
+            },
         });
     }
 
@@ -108,11 +206,15 @@ jQuery(document).ready(function() {
     });
 
     jQuery(document).on('mouseover', '.content-rooms .box__info .item', function() {
-        jQuery(this).find('.item__bottom').slideDown(400);
+        if(jQuery(window).width() > 1200) {
+            jQuery(this).find('.item__bottom').slideDown(400);
+        }
     });
 
     jQuery(document).on('mouseleave', '.content-rooms .box__info .item', function() {
-        jQuery(this).find('.item__bottom').slideUp(400);
+        if(jQuery(window).width() > 1200) {
+            jQuery(this).find('.item__bottom').slideUp(400);
+        }
     });
 
     if (jQuery('.content-rooms .box__info').length > 0) {
@@ -122,7 +224,6 @@ jQuery(document).ready(function() {
             nav: false,
             autoplay: false,
             dots: false,
-            margin: 30,
             navSpeed: 2200,
             dragEndSpeed: 2200,
             items: 1,
@@ -132,12 +233,11 @@ jQuery(document).ready(function() {
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             navText: [
-                '<div class="nav__prev"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
-                '<div class="nav__next"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
+                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
+                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
             ],
         });
     }
-
 
     if (jQuery('.content-packages .slider__packages').length > 0) {
         jQuery('.content-packages .slider__packages').owlCarousel({
@@ -156,8 +256,8 @@ jQuery(document).ready(function() {
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             navText: [
-                '<div class="nav__prev"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/></g></svg></div>',
-                '<div class="nav__next"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/></g></svg></div>'
+                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/></g></svg></div>',
+                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#f8c1b8" stroke-width="1.5"/></g></svg></div>'
             ],
             navContainer: '.content-packages .owl__nav',
             responsive: {
@@ -186,8 +286,17 @@ jQuery(document).ready(function() {
     	}
     });
 
-    jQuery(document).on('click', 'section.content-banner .box__form .form__dropdown .value__current', function() {
+    jQuery(document).on('click', 'section.content-banner .box__form .form__dropdown .value__current', function(t) {
+        t.stopPropagation();
     	jQuery(this).parent().toggleClass('value__open');
+        jQuery('.js-booking__checkin').removeClass('is-active');
+        jQuery('.js-booking__checkin .js-checkin').removeClass('visible');
+        jQuery('.js-booking__checkout').removeClass('is-active');
+        jQuery('.js-booking__checkout .js-checkout').removeClass('visible');
+    });
+
+    jQuery(document).on('click', 'section.content-banner .box__form .form__dropdown .value__options', function(t) {
+        t.stopPropagation();
     });
 
     function t(t) {
@@ -216,75 +325,48 @@ jQuery(document).ready(function() {
     })
       , o = jQuery(".js-checkout").datepicker({
         altFormat: "dd, MM",
-        dateFormat: "dd/mm/yy",
+        dateFormat: "dd MM yy",
         minDate: 0,
+        defaultDate: "+1d",
         numberOfMonths: 1,
         showOtherMonths: !0,
         onSelect: function(o) {
             jQuery(".js-checkout").removeClass("visible"),
             jQuery("input[name=checkout]").val(o),
             jQuery(".js-booking__checkout .c-booking__span").text(o),
-            n.datepicker("option", "maxDate", o),
-            jQuery(".js-booking__checkout .c-booking__span").text(t(o))
+            n.datepicker("option", "maxDate", o)
         }
     });
 
     jQuery(".js-booking__checkin").off("click"),
     jQuery(".js-booking__checkin").on("click", function(t) {
         t.stopPropagation();
+        jQuery('section.content-banner .box__form .form__dropdown').removeClass('value__open');
+        jQuery('.js-booking__checkout').removeClass('is-active');
+        jQuery('.js-booking__checkout .js-checkout').removeClass('visible');
 
-        if(jQuery(this).hasClass('is-active')) {
-            jQuery(this).removeClass("is-active");
-            jQuery(this).children(".js-checkin").removeClass("visible");            
-        } else {
-            jQuery(this).addClass("is-active");
-            jQuery(this).children(".js-checkin").addClass("visible");            
-        }
-    }),
+        jQuery(this).addClass("is-active");
+        jQuery(this).children(".js-checkin").addClass("visible");
+    });
     jQuery(".js-booking__checkout").off("click"),
     jQuery(".js-booking__checkout").on("click", function(t) {
         t.stopPropagation();
+        jQuery('section.content-banner .box__form .form__dropdown').removeClass('value__open');
+        jQuery('.js-booking__checkin').removeClass('is-active');
+        jQuery('.js-booking__checkin .js-checkin').removeClass('visible');
 
-        if(jQuery(this).hasClass('is-active')) {
-            jQuery(this).removeClass("is-active");
-            jQuery(this).children(".js-checkout").removeClass("visible");            
-        } else {
-            jQuery(this).addClass("is-active");
-            jQuery(this).children(".js-checkout").addClass("visible");            
-        }
-    }),
-    jQuery(".js-booking__checkin .c-booking__wrapper-span").off("click"),
-    jQuery(".js-booking__checkin .c-booking__wrapper-span").on("click", function(t) {
-        jQuery(this).next().hasClass("visible") && (t.stopPropagation())
-        // a(),
-        // s())
-    }),
-    jQuery(".js-booking__checkout .c-booking__wrapper-span").off("click"),
-    jQuery(".js-booking__checkout .c-booking__wrapper-span").on("click", function(t) {
-        jQuery(this).next().hasClass("visible") && (t.stopPropagation())
-        // a(),
-        // s())
-    }),
-    // jQuery(".js-checkin .ui-datepicker-current-day").click(),
-    // jQuery("body").off("click", a),
-    // jQuery("body").on("click", a),
-    // jQuery(".js-booking-submit").off("click"),
-    // jQuery(".js-booking-submit").on("click", function(t) {
-    //     var n = e(this).parent().parent().parent().find(".js-booking-fields input[name=checkin]").val()
-    //       , o = e(this).parent().parent().parent().find(".js-booking-fields input[name=checkout]").val()
-    //       , i = e(this).parent().parent().parent().find(".js-booking-fields input[name=adult_pax]").val();
-    //     e(this).parent().parent().parent().find(".js-booking-fields input[name=promocode]").val();
-    //     return !(!n || !o || 0 != isNaN(i)) && (a(),
-    //     s(),
-    //     !0)
-    // }),
-    jQuery(".js-booking__person-value").off("click"),
-    jQuery(".js-booking__person-value").on("click", function() {
-        // a(),
-        // s(),
-        jQuery(this).parent().parent().find(".js-booking__modal").toggleClass("is-active");
-    })
-    
+        jQuery(this).addClass("is-active");
+        jQuery(this).children(".js-checkout").addClass("visible");    
+    });
+
+    jQuery(document).on('click', 'html, body', function(){
+        jQuery('.js-booking__checkin').removeClass('is-active');
+        jQuery('.js-booking__checkin .js-checkin').removeClass('visible');
+        jQuery('.js-booking__checkout').removeClass('is-active');
+        jQuery('.js-booking__checkout .js-checkout').removeClass('visible');
+        jQuery('section.content-banner .box__form .form__dropdown').removeClass('value__open');
+    });
+
     jQuery(document).on('click', '.form__dropdown .value__options .option .op__number .plus', function() {
         jQuery(this).parent().find('.current').val(Number(jQuery(this).parent().find('.current').val()) + 1);
     });
@@ -459,54 +541,46 @@ jQuery(document).ready(function() {
     });
 
 // Scroll Animation
-    var $animation_elements = $('[data-anim]');
-    var $window = $(window);
+    setTimeout(function(){
+        var $animation_elements = $('[data-anim]');
+        var $window = $(window);
 
-    function anim() {
-        var window_height = $window.height();
-        var window_top_position = $window.scrollTop();
-        var window_bottom_position = (window_top_position + 600);
+        function anim() {
+            var window_height = $window.height();
+            var window_top_position = $window.scrollTop();
+            var window_bottom_position = (window_top_position + 600);
 
-        $.each($animation_elements, function() {
-            var $element = $(this);
-            var element_height = $element.outerHeight();
-            var element_top_position = $element.offset().top;
-            var element_bottom_position = (element_top_position + 600);
+            $.each($animation_elements, function() {
+                var $element = $(this);
+                var element_height = $element.outerHeight();
+                var element_top_position = $element.offset().top;
+                var element_bottom_position = (element_top_position + 600);
 
-            //check to see if this current container is within viewport
-            if ((element_bottom_position >= window_top_position) && (element_top_position <= window_bottom_position)) {
-                $element.attr('data-anim', "true");
-            } else {
-                // $element.removeClass('in-view');
-            }
-        });
-    }
+                //check to see if this current container is within viewport
+                if ((element_bottom_position >= window_top_position) && (element_top_position <= window_bottom_position)) {
+                    $element.attr('data-anim', "true");
+                } else {
+                    // $element.removeClass('in-view');
+                }
+            });
+        }
 
-    $window.on('scroll resize', anim);
-    $window.trigger('scroll');
+        $window.on('scroll resize', anim);
+        $window.trigger('scroll');
+    }, 3000);
 });
 
 function header() {
     // Scroll article
-    var position = jQuery(window).scrollTop();
     jQuery(window).scroll(function(event) {
         var scroll = jQuery(window).scrollTop();
         if (scroll > 200) {
             jQuery('#header').addClass('active');
+            jQuery('#header-responsive').addClass('active');
         } else {
             jQuery('#header').removeClass('active');
+            jQuery('#header-responsive').removeClass('active');
         }
-
-        if (jQuery(this).scrollTop() > 400) {
-            if (scroll > position) {
-                jQuery('.go-to-top').removeClass('active');
-            } else {
-                jQuery('.go-to-top').addClass('active');
-            }
-        } else {
-            jQuery('.go-to-top').removeClass('active');
-        }
-        position = scroll;
     });
 }
 

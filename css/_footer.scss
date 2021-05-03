@@ -11,6 +11,7 @@
 			display: grid;
 			grid-template-columns: 22rem auto 22rem;
 			grid-column-gap: 30px;
+		    transition-delay: 1s;
 		}
 		.box_left{
 			.logo{
