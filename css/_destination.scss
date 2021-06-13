@@ -56,12 +56,13 @@
 					padding-right: 4rem;
 				}
 				@media (max-width: 992px){
-				    height: auto;
+				    height: 30rem;
 				    padding: 0 4rem;
 				    order: 1;
 				}
 				@media (max-width: 450px){
 				    padding: 0 2rem;
+				    height: 25rem;
 				}
 				.st__img{
 					height: 100%;
@@ -150,7 +151,7 @@
 				position: relative;
 				.nd__img{
 					margin-left: auto;
-					max-width: 545px;
+					max-width: 54.5rem;
 					position: absolute;
 					top: 0;
 					right: 11.5rem;
@@ -162,7 +163,10 @@
 					}
 					@media (max-width: 992px){
 						position: static;
-						max-height: 400px;
+						height: 40rem;
+					}
+					@media (max-width: 450px){
+						height: 35rem;
 					}
 
 					overflow: hidden;					

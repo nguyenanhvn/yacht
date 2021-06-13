@@ -1,5 +1,118 @@
 /* Content Offer Com 1 */
 	section.content-offer_1{
+		&.style_padding{
+			padding: 14rem 0 0;
+			@media (max-width: 992px){
+				padding: 6rem 0 0;
+			}
+		}
+		.content_box{
+			margin-bottom: 6rem;
+			@media (max-width: 992px){
+				margin-bottom: 4rem;
+			}
+			small{
+				font-size: 1.4rem;
+				line-height: 1.6rem;
+				font-weight: 300;
+				@include other;
+				color: #20415C;
+				text-transform: uppercase;
+				transition-delay: 0.5s;
+			}
+			.box__bottom{
+				display: flex;
+				margin-top: 10px;
+				justify-content: space-between;
+				@media (max-width: 450px){
+					display: block;
+				}
+				.heading{
+					margin: 0;
+					text-align: left;
+					font-size: 4.8rem;
+					line-height: 6rem;
+					letter-spacing: 0px;
+					color: #20415C;
+					text-transform: uppercase;
+					font-weight: 500;
+					@include font;
+					transition-delay: 0.7s;
+					@media (max-width: 450px){
+						font-size: 3.2rem;
+						line-height: 1.25;
+					}
+				}
+				.box__view{
+					display: table;
+					margin: 3rem 0 0 0;
+					font-size: 1.2rem;
+					text-transform: uppercase;
+					font-weight: bold;
+					@include font;
+					transition-delay: 0.7s;
+					@media (max-width: 992px){
+						margin-right: 0;
+					}
+					@media (max-width: 450px){
+						margin-top: 2rem;
+					}
+					&:hover{
+						span{
+							top: -12px;
+						}
+						small{
+							width: 100%;
+						}
+						svg{
+							opacity: 1;
+						}
+					}
+					.view__container{
+						position: relative;
+						.view__arrow{
+							position: absolute;
+						    left: 0;
+						    top: 0;
+						    right: 10px;
+						}
+					}
+					svg{
+				        display: inline-block;
+					    position: absolute;
+					    top: 1px;
+					    right: -2px;
+					    bottom: 0;
+					    object-fit: cover;
+					    margin: auto;
+					    opacity: 0;
+						@include transition;
+					}
+					small{
+						background: #F8C1B8;
+					    width: 2rem;
+					    opacity: 1;
+					    display: inline-block;
+					    top: -3.5px;
+					    padding: 0;
+					    height: 2px;
+					    border: 0;
+				        position: relative;
+						@include transition;
+					}
+					span{
+						display: inline-block;
+						position: relative;
+						color: $color-bold;
+						top: 0;
+						@include transition;
+						padding: 0 0 0 8px;
+						margin-left: 22px;
+					    line-height: 1;
+					}
+				}
+			}
+		}
 		.content-gray{
 			padding: 0;
 			text-align: center;
@@ -220,7 +333,7 @@
 			}
 		}
 		.box__contents{
-			.item{
+			.item{		
 				.item_box{
 					grid-template-columns: repeat(3, minmax(100px, 1fr));
 					grid-gap: 3rem;
@@ -242,6 +355,9 @@
 					position: relative;
 					@include transition;
 					@include animation;
+					@media (max-width: 450px){
+						height: 50rem;
+					}
 					&:hover{
 						.child__img{
 							transform: scale(1.1);

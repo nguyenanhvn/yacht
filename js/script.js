@@ -101,6 +101,10 @@ jQuery(document).ready(function() {
         jQuery('.content-odbanner .shadow').css("opacity", jQuery(window).scrollTop() / 1500) - 1;
         jQuery('.content-odbanner .box__flex').css("transform", 'matrix(1, 0, 0, 1, 0, ' + (jQuery(window).scrollTop() / 2.5) + ')');
         jQuery('.content-odbanner .box__flex').css("opacity", 1 - jQuery(window).scrollTop() / 1500);
+
+        jQuery('.content-sbanner .shadow').css("opacity", jQuery(window).scrollTop() / 1500) - 1;
+        jQuery('.content-sbanner .box__flex').css("transform", 'matrix(1, 0, 0, 1, 0, ' + (jQuery(window).scrollTop() / 2.5) + ')');
+        jQuery('.content-sbanner .box__flex').css("opacity", 1 - jQuery(window).scrollTop() / 1500);
     });
 
     setTimeout(function() {
@@ -275,6 +279,24 @@ jQuery(document).ready(function() {
         });
     }
 
+    if (jQuery('.content-srooms .content_slider').length > 0) {
+        jQuery('.content-srooms .content_slider').owlCarousel({
+            loop: true,
+            autoplayTimeout: 5000,
+            nav: true,
+            autoplay: false,
+            dots: false,
+            margin: 10,
+            navSpeed: 2200,
+            dragEndSpeed: 2200,
+            items: 1,
+            navText: [
+                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
+                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
+            ],
+        });
+    }
+
 	var down = 0;
 
     jQuery(document).on('mouseover', '.content-services .box__options .item', function() {
@@ -284,6 +306,23 @@ jQuery(document).ready(function() {
 	    	jQuery(this).closest('.content-services').attr('data-item', index + 1);
 	    	jQuery(this).addClass('active');
     	}
+    });    
+
+    jQuery(document).on('mouseover', '.content-fadebg .content_items .item', function() {
+        var index = jQuery(this).index();
+        if(!jQuery(this).hasClass('active')){
+            jQuery('.content-fadebg .content_items .item').removeClass('active');
+            jQuery(this).closest('.content-fadebg').attr('data-item', index + 1);
+            jQuery(this).addClass('active');
+        }
+        if(jQuery(window).width() > 1200){            
+            jQuery(this).find('.item_table').slideDown(500);
+        }
+    });
+    jQuery(document).on('mouseleave', '.content-fadebg .content_items .item', function() {
+        if(jQuery(window).width() > 1200){            
+            jQuery(this).find('.item_table').slideUp(500);
+        }
     });
 
     jQuery(document).on('click', 'section.content-banner .box__form .form__dropdown .value__current', function(t) {
