@@ -295,10 +295,6 @@
 	    }
 	}
 
-	*{
-		cursor: default;
-	}
-
 	.mouse-ball {
 	    width: 10px;
 	    height: 10px;
@@ -444,6 +440,7 @@
 		font-size: 8rem;
 		line-height: 1.1;
 		font-weight: 500;
+		margin: 0;
 		@include font;
 		@media (max-width: 1200px){
 			font-size: 6.4rem;
@@ -458,6 +455,7 @@
 		letter-spacing: 0px;
 		color: $color-bold;
 		font-weight: 500;
+		margin: 0;
 		@include font;
 		@media (max-width: 450px){
 			font-size: 4.8rem;
@@ -468,6 +466,8 @@
 		line-height: 6rem;
 		letter-spacing: 0px;
 		font-weight: 500;
+		margin: 0;
+		color: $color-bold;
 		@include font;
 		@media (max-width: 450px){
 			font-size: 3.2rem;
@@ -475,9 +475,25 @@
 	}
 	.conn_heading32{
 		@include title;
+		margin: 0;
 		color: $color-bold;
+		@include font;
 		@media (max-width: 450px){
 			@include title-mobile;
+		}
+	}
+	.conn_heading24{
+		font-size: 2.4rem;
+		line-height: 2.8rem;
+		letter-spacing: 0px;
+		font-weight: 500;
+		margin: 0;
+		@include font;
+		text-transform: uppercase;
+		color: $color-bold;
+		@media (max-width: 450px){
+			font-size: 2rem;
+			line-height: 1.4;
 		}
 	}
 	.conn_text{
