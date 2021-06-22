@@ -499,6 +499,7 @@
 	.conn_text{
 		@include text;
 		color: $color-bold;
+		font-weight: 300;
 		@media (max-width: 450px){
 			@include text-mobile;
 		}
