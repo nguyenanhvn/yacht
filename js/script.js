@@ -220,6 +220,9 @@ jQuery(document).ready(function() {
             jQuery(this).find('.item__bottom').slideUp(400);
         }
     });
+    jQuery(document).on('click', '.content-rooms .nav__prev', function() {
+        jQuery('.content-rooms .box__info').trigger('prev.owl.carousel');
+    });
 
     if (jQuery('.content-rooms .box__info').length > 0) {
         jQuery('.content-rooms .box__info').owlCarousel({
@@ -240,6 +243,59 @@ jQuery(document).ready(function() {
                 '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
                 '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
             ],
+        });
+    }
+
+    if (jQuery('.content-droom .box__slider').length > 0) {
+        jQuery('.content-droom .box__slider').owlCarousel({
+            loop: true,
+            autoplayTimeout: 5000,
+            nav: true,
+            autoplay: false,
+            dots: false,
+            navSpeed: 2200,
+            dragEndSpeed: 2200,
+            items: 1,
+            startPosition: 1,
+            touchDrag: false,
+            mouseDrag: false,
+            navText: [
+                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
+                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
+            ],
+            responsive: {
+                0: {
+                    margin: 0,
+                },
+                1201: {
+                    margin: 30,
+                }
+            },
+        });
+    }
+
+    jQuery(document).on('click', '.content-droom .nav__next', function() {
+        jQuery('.content-droom .box__info').trigger('next.owl.carousel');
+    });
+
+    jQuery(document).on('click', '.content-droom .nav__prev', function() {
+        jQuery('.content-droom .box__info').trigger('prev.owl.carousel');
+    });
+    if (jQuery('.content-droom .box__info').length > 0) {
+        jQuery('.content-droom .box__info').owlCarousel({
+            loop: true,
+            autoplayTimeout: 5000,
+            nav: false,
+            autoplay: false,
+            dots: false,
+            navSpeed: 2200,
+            dragEndSpeed: 2200,
+            items: 1,
+            touchDrag: false,
+            mouseDrag: false,
+            startPosition: 1,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
         });
     }
 

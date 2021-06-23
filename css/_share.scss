@@ -342,10 +342,10 @@
         color: #000;
     }
     .conn_white{
-        color: #fff;
+        color: #fff !important;
         &:hover{
-            color: #fff;
-            text-decoration: none;
+            color: #fff !important;
+            text-decoration: none !important;
         }
     }
 
