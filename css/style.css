@@ -6789,12 +6789,9 @@ section.content-droom .box_img {
 section.content-droom .box_img img {
   max-width: 100%;
 }
-section.content-droom .box__slider {
+section.content-droom .content_bottom {
+  position: relative;
   margin-top: 6rem;
-}
-section.content-droom .box__slider:hover .nav__prev,
-section.content-droom .box__slider:hover .nav__next {
-  opacity: 1;
 }
 section.content-droom .box__slider.owl-carousel .owl-stage-outer {
   overflow: inherit;
@@ -6885,50 +6882,28 @@ section.content-droom .box__slider .item .item_bg .bg__box .bg {
   transition: transform 0s 0.6s;
   will-change: transform;
 }
-section.content-droom .box__slider .nav__prev,
-section.content-droom .box__slider .nav__next {
-  width: 10rem;
-  height: 8rem;
-  background: #20415C;
+section.content-droom .owl__nav {
   position: absolute;
   top: 0;
   bottom: 0;
-  margin: auto;
-  cursor: pointer;
-  pointer-events: auto;
-  opacity: 0;
-  transition: all 0.3s ease-out 0.2s;
-  -webkit-transition: all 0.3s ease-out 0.2s;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
-@media (max-width: 767px) {
-  section.content-droom .box__slider .nav__prev,
-section.content-droom .box__slider .nav__next {
-    width: 8rem;
-    height: 6rem;
-    opacity: 1;
-  }
-}
-section.content-droom .box__slider .nav__prev svg,
-section.content-droom .box__slider .nav__next svg {
+section.content-droom .owl__nav .owl-next,
+section.content-droom .owl__nav .owl-prev {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  margin: auto;
+  width: 50vw;
 }
-@media (max-width: 767px) {
-  section.content-droom .box__slider .nav__prev svg,
-section.content-droom .box__slider .nav__next svg {
-    width: 3rem;
-    height: auto;
-  }
-}
-section.content-droom .box__slider .nav__prev {
-  left: 0;
-}
-section.content-droom .box__slider .nav__next {
+section.content-droom .owl__nav .owl-next {
   right: 0;
+  background: #000;
+}
+section.content-droom .owl__nav .owl-prev {
+  left: 0;
+  background: gray;
 }
 section.content-droom .box__info {
   margin-top: 3rem;
