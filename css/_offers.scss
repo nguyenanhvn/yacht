@@ -2,8 +2,22 @@
 	section.content-offer_1{
 		&.style_padding{
 			padding: 14rem 0 0;
+			&.style_npadding{
+				padding: 0 !important;
+			}
 			@media (max-width: 992px){
 				padding: 6rem 0 0;
+			}
+			.box__contents .item .child{
+				@media (max-width: 992px){
+					display: none;
+					&:nth-child(1),
+					&:nth-child(2){
+						display: -ms-flexbox;
+					    display: -webkit-flex;
+					    display: flex;
+					}
+				}
 			}
 		}
 		.content_box{

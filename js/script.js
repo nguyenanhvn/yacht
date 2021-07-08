@@ -1,6 +1,6 @@
+var skr = null;
 jQuery(document).ready(function() {
     var width_device = jQuery(window).width();
-
     header();
     smooth_scroll_init();
     skrollr_int();
@@ -11,11 +11,21 @@ jQuery(document).ready(function() {
 // mouse anim
     jQuery(document).on('mouseover', '.ubtn', function () {
         jQuery('.mouse-ball').addClass('mouse-ball-hover');
-        jQuery(this).addClass('ubtn-hovering');
     }).on('mouseleave', '.ubtn', function () {
         jQuery('.mouse-ball').removeClass('mouse-ball-hover');
-        jQuery(this).removeClass('ubtn-hovering');
     });
+
+    jQuery(document).on('mouseover', '.ubtn_larrow', function () {
+        jQuery('.mouse-ball').addClass('mouse-ball-hover mouse-ubtn_larrow')
+    }).on('mouseleave', '.ubtn_larrow', function () {
+        jQuery('.mouse-ball').removeClass('mouse-ball-hover mouse-ubtn_larrow')
+    });
+    jQuery(document).on('mouseover', '.ubtn_rarrow', function () {
+        jQuery('.mouse-ball').addClass('mouse-ball-hover mouse-ubtn_rarrow')
+    }).on('mouseleave', '.ubtn_rarrow', function () {
+        jQuery('.mouse-ball').removeClass('mouse-ball-hover mouse-ubtn_rarrow')
+    });
+
     jQuery('a').on('mouseover', function () {
         jQuery('.mouse-ball').addClass('mouse-ball-hover')
     }).on('mouseleave', function () {
@@ -94,9 +104,9 @@ jQuery(document).ready(function() {
     });
 
     jQuery(window).scroll(function(){
-        jQuery('.content-obanner .shadow').css("opacity", jQuery(window).scrollTop() / 1500) - 1;
-        jQuery('.content-obanner .box__flex').css("transform", 'matrix(1, 0, 0, 1, 0, ' + (jQuery(window).scrollTop() / 2.5) + ')');
-        jQuery('.content-obanner .box__flex').css("opacity", 1 - jQuery(window).scrollTop() / 1500);
+        jQuery('.content-obanner:not(.none_scroll) .shadow').css("opacity", jQuery(window).scrollTop() / 1500) - 1;
+        jQuery('.content-obanner:not(.none_scroll) .box__flex').css("transform", 'matrix(1, 0, 0, 1, 0, ' + (jQuery(window).scrollTop() / 2.5) + ')');
+        jQuery('.content-obanner:not(.none_scroll) .box__flex').css("opacity", 1 - jQuery(window).scrollTop() / 1500);
 
         jQuery('.content-odbanner .shadow').css("opacity", jQuery(window).scrollTop() / 1500) - 1;
         jQuery('.content-odbanner .box__flex').css("transform", 'matrix(1, 0, 0, 1, 0, ' + (jQuery(window).scrollTop() / 2.5) + ')');
@@ -140,8 +150,8 @@ jQuery(document).ready(function() {
     });
 
     /*=================================================
-        					Custom
-	=====================================================*/
+                            Custom
+    =====================================================*/
     if (jQuery('.content-intro .middle__slider').length > 0) {
         jQuery('.content-intro .middle__slider').owlCarousel({
             loop: true,
@@ -260,8 +270,8 @@ jQuery(document).ready(function() {
             touchDrag: false,
             mouseDrag: false,
             navText: [
-                '<div class="nav__prev ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(1.061 0.53)"><path d="M-6774.346,1598.661h-44" transform="translate(6818.616 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6764.03,1556.572l-8,8,8,8" transform="translate(6772.03 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>',
-                '<div class="nav__next ubtn"><svg xmlns="http://www.w3.org/2000/svg" width="45.331" height="17.061" viewBox="0 0 45.331 17.061"><g transform="translate(0 0.53)"><path d="M-6818.346,1598.661h44" transform="translate(6818.346 -1590.76)" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M-6772.03,1556.572l8,8-8,8" transform="translate(6808.301 -1556.572)" fill="none" stroke="#fff" stroke-width="1.5"/></g></svg></div>'
+                '<div class="nav__prev ubtn_larrow"></div>',
+                '<div class="nav__next ubtn_rarrow"></div>'
             ],
             navContainer: '.content-droom .owl__nav',
             responsive: {
@@ -274,14 +284,7 @@ jQuery(document).ready(function() {
             },
         });
     }
-
-    jQuery(document).on('click', '.content-droom .nav__next', function() {
-        jQuery('.content-droom .box__info').trigger('next.owl.carousel');
-    });
-
-    jQuery(document).on('click', '.content-droom .nav__prev', function() {
-        jQuery('.content-droom .box__info').trigger('prev.owl.carousel');
-    });
+    
     if (jQuery('.content-droom .box__info').length > 0) {
         jQuery('.content-droom .box__info').owlCarousel({
             loop: true,
@@ -298,7 +301,70 @@ jQuery(document).ready(function() {
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
         });
+    }    
+
+    jQuery(document).on('click', '.content-droom .nav__next', function() {
+        jQuery('.content-droom .box__info').trigger('next.owl.carousel');
+    });
+
+    jQuery(document).on('click', '.content-droom .nav__prev', function() {
+        jQuery('.content-droom .box__info').trigger('prev.owl.carousel');
+    });
+
+    if (jQuery('.content-dwedding .box__slider').length > 0) {
+        jQuery('.content-dwedding .box__slider').owlCarousel({
+            loop: true,
+            autoplayTimeout: 5000,
+            nav: true,
+            autoplay: false,
+            dots: false,
+            navSpeed: 2200,
+            dragEndSpeed: 2200,
+            items: 1,
+            startPosition: 1,
+            touchDrag: false,
+            mouseDrag: false,
+            navText: [
+                '<div class="nav__prev ubtn_larrow"></div>',
+                '<div class="nav__next ubtn_rarrow"></div>'
+            ],
+            navContainer: '.content-dwedding .owl__nav',
+            responsive: {
+                0: {
+                    margin: 0,
+                },
+                1201: {
+                    margin: 30,
+                }
+            },
+        });
     }
+    
+    if (jQuery('.content-dwedding .box__info').length > 0) {
+        jQuery('.content-dwedding .box__info').owlCarousel({
+            loop: true,
+            autoplayTimeout: 5000,
+            nav: false,
+            autoplay: false,
+            dots: false,
+            navSpeed: 2200,
+            dragEndSpeed: 2200,
+            items: 1,
+            touchDrag: false,
+            mouseDrag: false,
+            startPosition: 1,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+        });
+    }    
+
+    jQuery(document).on('click', '.content-dwedding .nav__next', function() {
+        jQuery('.content-dwedding .box__info').trigger('next.owl.carousel');
+    });
+
+    jQuery(document).on('click', '.content-dwedding .nav__prev', function() {
+        jQuery('.content-dwedding .box__info').trigger('prev.owl.carousel');
+    });
 
     if (jQuery('.content-packages .slider__packages').length > 0) {
         jQuery('.content-packages .slider__packages').owlCarousel({
@@ -354,15 +420,15 @@ jQuery(document).ready(function() {
         });
     }
 
-	var down = 0;
+    var down = 0;
 
     jQuery(document).on('mouseover', '.content-services .box__options .item', function() {
-    	var index = jQuery(this).index();
-    	if(!jQuery(this).hasClass('active')){
-    		jQuery('.content-services .box__options .item').removeClass('active');
-	    	jQuery(this).closest('.content-services').attr('data-item', index + 1);
-	    	jQuery(this).addClass('active');
-    	}
+        var index = jQuery(this).index();
+        if(!jQuery(this).hasClass('active')){
+            jQuery('.content-services .box__options .item').removeClass('active');
+            jQuery(this).closest('.content-services').attr('data-item', index + 1);
+            jQuery(this).addClass('active');
+        }
     });    
 
     jQuery(document).on('mouseover', '.content-fadebg .content_items .item', function() {
@@ -382,16 +448,16 @@ jQuery(document).ready(function() {
         }
     });
 
-    jQuery(document).on('click', 'section.content-banner .box__form .form__dropdown .value__current', function(t) {
+    jQuery(document).on('click', '.box__form .form__dropdown .value__current', function(t) {
         t.stopPropagation();
-    	jQuery(this).parent().toggleClass('value__open');
+        jQuery(this).parent().toggleClass('value__open');
         jQuery('.js-booking__checkin').removeClass('is-active');
         jQuery('.js-booking__checkin .js-checkin').removeClass('visible');
         jQuery('.js-booking__checkout').removeClass('is-active');
         jQuery('.js-booking__checkout .js-checkout').removeClass('visible');
     });
 
-    jQuery(document).on('click', 'section.content-banner .box__form .form__dropdown .value__options', function(t) {
+    jQuery(document).on('click', '.box__form .form__dropdown .value__options', function(t) {
         t.stopPropagation();
     });
 

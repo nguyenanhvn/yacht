@@ -316,6 +316,16 @@
 	    background-color: #fff;
 	    mix-blend-mode: difference;
 	}
+	.mouse-ubtn_larrow {
+	    border: .5px dashed rgba(#fff, 0.9);
+	    background: url("../images/prev.png") no-repeat center /cover;
+	    /* mix-blend-mode: inherit; */
+	}
+	.mouse-ubtn_rarrow {
+	    border: .5px dashed rgba(#fff, 0.9);
+	    background: url("../images/next.png") no-repeat center /cover;
+	    /* mix-blend-mode: inherit; */
+	}
 
 	.container{
 		max-width: 1150px;
@@ -422,6 +432,9 @@
     }
     .conn_bggray{
     	background: #F5F3F1;
+    }
+    .conn_bgpink{
+    	background: #FEF3F1;
     }
 
     .conn_ani{
